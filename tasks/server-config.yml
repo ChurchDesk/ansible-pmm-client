@@ -82,6 +82,8 @@
            --server-user {{ pmm_client_server_basic_auth_username | quote }}
            --server-password {{ pmm_client_server_basic_auth_password | quote }}
            --server-ssl
+           --bind-address {{ansible_default_ipv4.address}}
+           --client-address {{ansible_default_ipv4.address}}
            --client-name {{ pmm_client_name | quote }}
            --config-file {{ pmm_client_config_file | quote }}
            {{ '--force' if pmm_client_force_setup else omit }}
